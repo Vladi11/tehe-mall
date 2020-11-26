@@ -1,0 +1,234 @@
+@import "utils/utils";
+
+html {
+    font-size: $main-font-size;
+    @include media-xl {
+        font-size: 22px;
+    }
+    @include media-l {
+        font-size: 20px;
+    }
+    @include media-m {
+        font-size: 18px;
+    }
+}
+
+body {
+    font-family: $main-font;
+    font-weight: $main-font-weight;
+    line-height: $main-line-height;
+    color: $main-font-color;
+    position: relative;
+    height: 100%;
+}
+
+.main {
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+.wrapper {
+    max-width: 1746px;
+    padding: 0 103px;
+    margin: 0 auto;
+    @include media-xxxl {
+        margin: 0 0 0 auto;
+    }
+    @include media-m {
+        padding: 0 40px;
+    }
+
+    &_center {
+        margin: 0 auto;
+    }
+
+    &_right {
+        @include media-xxxl {
+            max-width: 1746px;
+            padding: 0 0 0 103px;
+            margin: 0 0 0 auto;
+        }
+        @include media-m {
+            padding: 0 0 0 40px !important;
+        }
+    }
+}
+
+.title {
+    font-weight: normal;
+    font-size: rem(96);
+    line-height: 1;
+    color: #111111;
+    margin-bottom: 180px;
+    position: relative;
+    display: inline-flex;
+    @include media-m {
+        margin-bottom: 100px;
+        font-size: rem(82);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 16px;
+        left: 0;
+        bottom: -16px;
+        background: url(/assets/img/underline-title.svg) center/cover;
+        @include media-m {
+            height: 8px;
+            bottom: -10px;
+        }
+    }
+
+    &_orange {
+        &::after {
+            background: url(/assets/img/underline-title-orange.svg) center/cover;
+        }
+    }
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    padding: 3px 0;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background: #12919c;
+        transition: all 0.3s ease-out;
+    }
+
+    svg {
+        transition: all 0.3s ease-out;
+        cursor: pointer;
+
+        path {
+            transition: all 0.3s ease-out;
+        }
+    }
+
+    input {
+        border: none;
+        width: 0;
+        padding: 0;
+        transition: all 0.3s ease-out;
+    }
+
+    &:hover,
+    &_active {
+        &::after {
+            width: 100%;
+        }
+
+        svg {
+            margin-right: 10px;
+
+            path {
+                fill: #12919c;
+            }
+        }
+
+        input {
+            width: 150px;
+            padding-right: 10px;
+        }
+    }
+}
+
+.button {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+
+    &__wrapp {
+        padding: 16px 19px 13px 60px;
+        border: 2px solid #fff;
+        box-sizing: border-box;
+        border-radius: 50px;
+        position: relative;
+        z-index: 4;
+        background-color: transparent;
+        transition: padding 0.3s ease-out, background-color 0.5s ease-out;
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 44px;
+            width: 44px;
+            top: -2px;
+            left: -2px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            transition: all 0.3s ease-out;
+            max-height: 100%;
+            @include media-m {
+                width: 40px;
+            }
+        }
+
+        &:hover {
+            padding: 16px 60px 13px 19px;
+            background-color: rgba(26, 150, 161, 0.7);
+
+            &::before {
+                left: calc(100% - 46px);
+            }
+        }
+    }
+
+    &__text {
+        transition: all 0.3s ease-out;
+        font-weight: normal;
+        font-size: rem(15);
+        line-height: 1;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    &_center {
+        justify-content: center;
+    }
+
+    &_black {
+        .button__wrapp {
+            border-color: #000;
+
+            &::before {
+                border-color: #000;
+            }
+
+            &:hover {
+                background-color: rgba(26, 150, 161, 0.2);
+            }
+        }
+
+        .button__text {
+            color: #000;
+        }
+    }
+}
+
+@import "modules/modules";
+@import "pages/pages";
+
+
+.desktop {
+    @include media-m {
+        display: none !important;
+    }
+}
+
+.mobile {
+    @media (min-width: calc(#{$breakpoint-m} + 1px)) {
+        display: none !important;
+    }
+}

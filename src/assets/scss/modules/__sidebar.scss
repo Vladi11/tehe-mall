@@ -1,0 +1,112 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background: #fff;
+    height: 100vh;
+    overflow: auto;
+    -ms-overflow-style: none;
+    -ms-overflow-style: none;
+    @include media-m {
+        top: 64px;
+        height: 0;
+        width: 100%;
+        overflow: hidden;
+        transition: all .3s ease;
+        border-radius: 0 0 100% 100%;
+    }
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+
+    &:hover {
+        .navbar {
+            max-width: 392px;
+            @include media-m {
+                max-width: none;
+            }
+        }
+    }
+
+    &__wrapp {
+        padding: 180px 32px 0;
+        @include media-m {
+            padding: 16px;
+        }
+    }
+
+    &.open {
+        @include media-m {
+            border-radius: 0;
+            height: calc(100vh - 64px);
+            overflow: auto;
+        }
+    }
+}
+
+.navbar {
+    max-width: 24px;
+    transition: all 0.4s ease-out;
+    overflow: hidden;
+    padding: 0 0 10px;
+    z-index: 9;
+    @include media-m {
+        max-width: none;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        color: #111111;
+        font-size: rem(20px);
+        transition: all 0.1s ease-out;
+
+        &:not(:last-child) {
+            margin-bottom: 36px;
+        }
+
+        svg {
+            min-width: 24px;
+
+            path {
+                transition: all 0.3s ease-out;
+            }
+        }
+
+        p {
+            white-space: nowrap;
+            margin-left: 24px;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                background: url(/assets/img/underline-nav.svg);
+                display: block;
+                bottom: -8px;
+                left: 0;
+                width: 0;
+                height: 5px;
+                transition: all 0.2s ease-out;
+            }
+        }
+
+        &:hover {
+            color: #12919c;
+
+            svg {
+                path {
+                    fill: #12919c;
+                }
+            }
+
+            p {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
