@@ -1,4 +1,9 @@
 .footer {
+    margin-left: 88px;
+    @include media-m {
+        margin-left: 0;
+    }
+
     &__logo {
         display: flex;
         justify-content: center;

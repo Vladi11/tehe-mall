@@ -1,18 +1,12 @@
 .slider {
     height: calc(100vh - 90px);
-    width: 100%;
     position: relative;
-    margin-left: 88px;
     z-index: 1;
-    @media (max-height: 767px) {
-        height: auto;
-    }
     @include media-m {
         height: calc(100vh - 64px);
-        margin-left: 0;
-        @media (max-height: 767px) {
-            height: auto;
-        }
+    }
+    @media (max-height: 767px) {
+        height: auto;
     }
     
 
@@ -25,18 +19,17 @@
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        width: 100%;
         z-index: 3;
     }
 
     &__buttons {
         position: absolute;
-        width: calc(100% - 146px * 2);
+        width: calc(100% - 103px * 2);
         display: flex;
         align-items: center;
         justify-content: space-between;
         bottom: 243px;
-        right: 146px;
+        right: 103px;
         z-index: 3;
         @include media-m {
             width: calc(100% - 40px * 2);
@@ -64,10 +57,7 @@
 .slide {
     z-index: 3;
     position: relative;
-    padding: 74px 146px;
-    @include media-m {
-        padding: 40px;
-    }
+    padding: 74px 0;
 
     &::after {
         content: "";
@@ -80,6 +70,10 @@
         pointer-events: none;
         background: linear-gradient(360deg, rgba(17, 17, 17, 0.75) 0%, rgba(17, 17, 17, 0) 74.48%);
         z-index: 2;
+    }
+
+    .wrapper {
+        height: 100%;
     }
 
     &__content {
@@ -135,7 +129,7 @@
 
 .event-item {
     display: inline-flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
 
@@ -150,8 +144,11 @@
         max-height: 895px;
         display: flex;
         align-items: center;
+        @include media-xl {
+            max-height: calc(895px - 895px * 0.4);
+        }
         @include media-m {
-            height: calc(895px - 895px * 0.45);
+            max-height: calc(895px - 895px * 0.6);
         }
 
         &::after {
@@ -169,6 +166,12 @@
         img {
             position: relative;
             z-index: 3;
+            @include media-xl {
+                max-height: calc(895px - 895px * 0.4);
+            }
+            @include media-m {
+                max-height: calc(895px - 895px * 0.6);
+            }
         }
     }
 
@@ -177,6 +180,12 @@
         width: 40%;
         position: relative;
         z-index: 3;
+        margin-left: 15%;
+        @include media-xl {
+            margin-left: 40px;
+            max-width: 50%;
+            width: auto;
+        }
     }
 
     &__data {
@@ -185,8 +194,9 @@
         line-height: 1.2;
         color: #82bf8c;
         margin-bottom: 64px;
-        @include media-m {
+        @include media-xl {
             margin-bottom: 40px;
+            font-size: rem(18);
         }
     }
 
@@ -196,15 +206,18 @@
         line-height: 1.3;
         color: #111111;
         margin-bottom: 64px;
-        @include media-m {
+        @include media-xl {
             margin-bottom: 40px;
-            font-size: rem(44);
+            font-size: rem(54);
+        }
+        @include media-m {
+            font-size: rem(42);
         }
     }
 
     &__subtitle {
         font-weight: normal;
-        font-size: rem(24);
+        font-size: rem(18);
         line-height: 1.2;
         color: #111111;
         max-width: 360px;
@@ -219,6 +232,15 @@
                 bottom: -4.5%;
                 left: -6.3%;
                 right: auto;
+            }
+        }
+
+        .event-item__content {
+            margin-right: 15%;
+            margin-left: auto;
+            @include media-xl {
+                margin-right: 40px;
+                margin-left: auto;
             }
         }
     }
@@ -237,8 +259,8 @@
         grid-template-rows: repeat(2, 805px);
         grid-gap: 10px;
         margin-bottom: 93px;
-        @include media-m {
-            grid-template-rows: repeat(2, calc(805px - 805px * 0.5));
+        @include media-xl {
+            grid-template-rows: repeat(2, calc(805px - 805px * 0.6));
         }
     }
 
@@ -275,9 +297,13 @@
         max-width: 485px;
         min-height: 263px;
         justify-content: space-between;
-        @include media-m {
+        @include media-xl {
             padding: 15px;
             min-height: auto;
+        }
+
+        &_white {
+            width: 100%;
         }
     }
 
@@ -285,8 +311,8 @@
         font-weight: normal;
         font-size: rem(36);
         line-height: 1.3;
-        @include media-m {
-            font-size: rem(28);
+        @include media-xl {
+            font-size: rem(20);
         }
     }
 
@@ -295,9 +321,9 @@
         font-weight: normal;
         font-size: rem(24);
         line-height: 1.3;
-        @include media-m {
+        @include media-xl {
             margin-top: 24px;
-            font-size: rem(18);
+            font-size: rem(16);
         }
     }
 

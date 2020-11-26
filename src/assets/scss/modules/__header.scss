@@ -2,6 +2,11 @@
     padding: 30px 52px;
     position: relative;
     z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
     @include media-m {
         padding: 22px 16px;
     }
@@ -37,16 +42,13 @@
             }
         }
     }
+}
 
-    &.fixed {
-        position: fixed;
-        width: 100%;
-        background: #ffffff;
-        top: 0;
-        left: 0;
-
-        & ~ .main {
-            padding-top: 64px;
-        }
+.main {
+    margin-top: 90px;
+    max-width: 100vw;
+    overflow: hidden;
+    @include media-m {
+        margin-top: 64px;
     }
 }
