@@ -33,6 +33,7 @@ body {
 
 .wrapper {
     max-width: 1746px;
+    width: 100%;
     padding: 0 103px;
     margin: 0 auto;
     position: relative;
@@ -41,6 +42,9 @@ body {
     }
     @include media-xl {
         padding: 0 40px;
+    }
+    @include media-s {
+        padding: 0 16px;
     }
 
     &_center {
@@ -55,6 +59,9 @@ body {
         }
         @include media-xl {
             padding: 0 0 0 40px !important;
+        }
+        @include media-s {
+            padding: 0 16px !important;
         }
     }
 }
@@ -73,6 +80,10 @@ body {
     @include media-m {
         margin-bottom: 100px;
         font-size: rem(82);
+    }
+    @include media-s {
+        font-size: 35px;
+        margin-bottom: 68px;
     }
 
     &::after {
@@ -178,9 +189,6 @@ body {
             border-radius: 50%;
             transition: all 0.3s ease-out;
             max-height: 100%;
-            @include media-m {
-                width: 40px;
-            }
         }
 
         &:hover {
@@ -188,7 +196,7 @@ body {
             background-color: rgba(26, 150, 161, 0.7);
 
             &::before {
-                left: calc(100% - 46px);
+                left: calc(100% - 47px);
             }
         }
     }
@@ -196,7 +204,7 @@ body {
     &__text {
         transition: all 0.3s ease-out;
         font-weight: normal;
-        font-size: rem(15);
+        font-size: 15px;
         line-height: 1;
         color: #fff;
         text-transform: uppercase;

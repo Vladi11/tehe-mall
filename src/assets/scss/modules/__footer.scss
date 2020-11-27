@@ -8,6 +8,9 @@
         display: flex;
         justify-content: center;
         position: relative;
+        @include media-s {
+            display: none;
+        }
 
         &::after {
             content: '';
@@ -31,8 +34,14 @@
     }
 
     &__section {
+        @include media-s  {
+            border-top: 2px solid #111;
+        }
         &:not(:last-child) {
             border-bottom: 2px solid #EEEEEE;
+            @include media-s  {
+                border-bottom: none;
+            }
         }
     }
 }
@@ -46,6 +55,9 @@
     @include media-m {
         padding: 50px 0;
         grid-template-columns: 1fr;
+    }
+    @include media-s {
+        padding: 50px 0 70px;
     }
 
     &__item {
@@ -129,7 +141,7 @@
                     border-right: none;
                     padding: 16px 40px 13px 29px;
                     font-weight: normal;
-                    font-size: rem(15);
+                    font-size: 15px;
                     color: #999;
                     width: 100%;
                     transition: all 0.3s ease-out;
@@ -139,9 +151,30 @@
                     }
                 }
 
-                &__wrapp:hover ~ input {
-                    border-color: #111;
-                    color: #12919C;
+                &__wrapp {
+                    @include media-s{
+                        height: 0;
+                        width: 0;
+                        padding: 22px;
+                        background: url(/assets/img/footer-send.svg) center no-repeat;
+                    }
+
+                    &:hover ~ input {
+                        border-color: #111;
+                        color: #12919C;
+                    }
+
+                    &::before {
+                        @include media-s {
+                            display: none;
+                        }
+                    }
+    
+                    p {
+                        @include media-s {
+                            display: none;
+                        }
+                    }
                 }
             }
         }
@@ -149,7 +182,7 @@
 
     &__title {
         font-weight: 500;
-        font-size: rem(12);
+        font-size: 12px;
         line-height: 1;
         letter-spacing: 0.3em;
         text-transform: uppercase;
@@ -170,6 +203,9 @@
         align-items: center;
         padding: 50px 0;
     }
+    @include media-s  {
+        padding: 0 0 50px;
+    }
 
     &__list {
         @include media-m {
@@ -188,6 +224,9 @@
             transition: all 0.3s ease-out;
             @include media-m {
                 line-height: 1;
+            }
+            @include media-s {
+                font-size: 14px;
             }
 
             &:hover {
@@ -272,6 +311,7 @@
         color: #999;
         @include media-m {
             text-align: center;
+            max-width: 258px;
         }
 
         &:not(:last-child) {
